@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Use DATABASE_URL env var for production (e.g. Railway/Render MySQL/Postgres)
 # Falls back to local SQLite for easy local dev
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./eshop.db")
+DATABASE_URL = f"mysql+pymysql://{os.getenv('MYSQLUSER')}:{os.getenv('MYSQLPASSWORD')}@{os.getenv('MYSQLHOST')}:{os.getenv('MYSQLPORT')}/{os.getenv('MYSQLDATABASE')}"
 
 # SQLite needs check_same_thread=False
 connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
