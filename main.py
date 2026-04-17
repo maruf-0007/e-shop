@@ -3,10 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List, Optional
 
-import backend.models as models
-import backend.schemas as schemas
-import backend.auth as auth
-from backend.models import get_db, User, Category, Product, Customer, Invoice, InvoiceItem
+import models
+import schemas
+import auth
+from models import get_db, User, Category, Product, Customer, Invoice, InvoiceItem
 
 # Create tables
 try:
