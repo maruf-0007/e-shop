@@ -9,7 +9,10 @@ import backend.auth as auth
 from backend.models import get_db, User, Category, Product, Customer, Invoice, InvoiceItem
 
 # Create tables
-models.Base.metadata.create_all(bind=models.engine)
+try:
+    models.Base.metadata.create_all(bind=models.engine)
+except Exception as e:
+    print("DB ERROR:", e)
 
 app = FastAPI(title="e-shop POS API", version="1.0.0", description="Point of Sale backend API")
 
